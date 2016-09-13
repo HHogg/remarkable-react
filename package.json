@@ -1,0 +1,44 @@
+{
+  "name": "remarkable-react",
+  "version": "0.0.1",
+  "description": "React markdown adapter for Remarkable",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha ./test/renderer.tests.js",
+    "test:watch": "npm run test -- --watch",
+    "lint": "eslint --config .eslintrc ./src ./test",
+    "prepublish": "babel ./src --out-dir ./lib"
+  },
+  "author": {
+    "name": "Harrison Hogg",
+    "url": "https://hogg.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hhogg/remarkable-react.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "md",
+    "markdown",
+    "remarkable",
+    "react"
+  ],
+  "dependencies": {
+    "react": "^15.3.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "eslint": "^3.5.0",
+    "lodash": "^4.15.0",
+    "mocha": "^3.0.2",
+    "react-dom": "^15.3.1",
+    "remarkable": "^1.6.2"
+  }
+}
