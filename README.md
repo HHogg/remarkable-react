@@ -1,6 +1,8 @@
 # remarkable-react
 
-A configurable React component renderer for Remarkable. [Not a simple `dangerouslySetInnerHTML`!
+[![Build Status](https://travis-ci.org/HHogg/remarkable-react.svg?branch=master)](https://travis-ci.org/HHogg/remarkable-react)
+
+A configurable React component renderer for [Remarkable](https://github.com/jonschlinkert/remarkable). [Not a simple `dangerouslySetInnerHTML`!
 
 
 ## Install
@@ -116,7 +118,7 @@ new RemarkableReactRenderer({
 
 ## Contributing
 
-I always love a contribution, but please try to add any needed additional tests, make sure previous tests pass and liniting is all good. 
+:heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy. 
 
 ```
 npm run test
