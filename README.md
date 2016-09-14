@@ -1,6 +1,7 @@
 # remarkable-react
 
 [![Build Status](https://travis-ci.org/HHogg/remarkable-react.svg?branch=master)](https://travis-ci.org/HHogg/remarkable-react)
+[![npm version](https://badge.fury.io/js/remarkable-react.svg)](https://badge.fury.io/js/remarkable-react)
 
 A configurable React component renderer for [Remarkable](https://github.com/jonschlinkert/remarkable). [Not a simple `dangerouslySetInnerHTML`!
 
@@ -8,7 +9,7 @@ A configurable React component renderer for [Remarkable](https://github.com/jons
 ## Install
 
 ```
-Soon // npm install remarkable-react --save
+npm install remarkable-react --save
 ```
 
 
