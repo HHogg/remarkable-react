@@ -117,12 +117,20 @@ new RemarkableReactRenderer({
 });
 ```
 
+
+## Demo 
+
+Run a very quick demo and see it in action.
+```
+npm run demo
+```
+
 ## Contributing
 
 :heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy. 
 
 ```
-npm run test
+npm run test // also available `npm run test:watch`
 npm run lint
 ```
 

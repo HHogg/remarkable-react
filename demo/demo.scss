@@ -1,0 +1,58 @@
+@import '~normalize.css/normalize.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  box-sizing: border-box;
+}
+
+
+html {
+  height: 100%;
+}
+
+body,
+.rr-app-container {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.rr-demo-layout {
+  display: flex;
+}
+
+.rr-demo-layout__column {
+  flex: 1 0 50%;
+}
+
+.rr-markdown-input,
+.rr-markdown-output {
+  padding: 10px;
+}
+
+.rr-markdown-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  border: 0;
+  line-height: inherit;
+  appearance: none;
+  resize: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.rr-markdown-output {
+  img {
+    max-width: 100%;
+  }
+}

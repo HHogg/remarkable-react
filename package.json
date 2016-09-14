@@ -4,10 +4,11 @@
   "description": "React markdown adapter for Remarkable",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha ./test/renderer.tests.js",
-    "test:watch": "npm run test -- --watch",
+    "demo": "webpack-dev-server --config ./demo/webpack.config.js --progress --profile --colors",
     "lint": "eslint --config .eslintrc ./src ./test",
-    "prepublish": "babel ./src --out-dir ./lib"
+    "prepublish": "babel ./src --out-dir ./lib",
+    "test": "mocha ./test/renderer.tests.js",
+    "test:watch": "npm run test -- --watch"
   },
   "author": {
     "name": "Harrison Hogg",
@@ -28,18 +29,31 @@
     "react": "^15.3.1"
   },
   "devDependencies": {
+    "autoprefixer": "^6.4.1",
     "babel-cli": "^6.14.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-2": "^6.13.0",
+    "css-loader": "^0.25.0",
     "eslint": "^3.5.0",
     "eslint-plugin-react": "^6.2.1",
+    "html-webpack-plugin": "^2.22.0",
     "lodash": "^4.15.0",
     "mocha": "^3.0.2",
+    "node-sass": "^3.10.0",
+    "normalize.css": "^4.2.0",
+    "postcss-loader": "^0.13.0",
+    "raw-loader": "^0.5.1",
     "react-dom": "^15.3.1",
-    "remarkable": "^1.6.2"
+    "react-hot-loader": "^3.0.0-beta.3",
+    "remarkable": "^1.6.2",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.1"
   }
 }
