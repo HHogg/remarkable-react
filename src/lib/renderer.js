@@ -7,7 +7,7 @@ const defaultOptions = {
     align(align) {
       return {
         key: 'style',
-        value: align && `text-align: ${align};`,
+        value: align && { textAlign: align },
       };
     },
     alt: true,
@@ -29,13 +29,19 @@ const defaultOptions = {
   },
 };
 
+const defaultComponents = Object.keys(ReactDOMFactories)
+  .reduce((components, DOMFactoryKey) => {
+    components[DOMFactoryKey] = DOMFactoryKey;
+    return components;
+  }, {});
+
 function Renderer(options = {}) {
   this.options = {
     ...defaultOptions,
     ...options,
 
     components: {
-      ...ReactDOMFactories,
+      ...defaultComponents,
       ...(options.components || {}),
     },
 
@@ -58,9 +64,9 @@ Renderer.prototype.renderTokenTree = function(tokens) {
   return tokens.map((token, index) => {
     return this.options.components[token.type]
       ? React.createElement(
-        this.options.components[token.type],
-        this.getTokenProps(token, index),
-        this.renderTokenTree(token.children))
+          this.options.components[token.type],
+          this.getTokenProps(token, index),
+          this.renderTokenTree(token.children))
       : token.children;
   });
 }

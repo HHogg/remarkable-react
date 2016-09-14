@@ -1,6 +1,5 @@
 import assert from 'assert';
 import React, { isValidElement } from 'react';
-import ReactDOMFactories from 'react/lib/ReactDOMFactories';
 import { render, walkTree } from './utils';
 
 function assertStructure(input, expected) {
@@ -17,7 +16,7 @@ function assertStructure(input, expected) {
 function assertProps(input, expected) {
   walkTree(input, expected, (input, expected) => {
     Object.keys((expected.props || {})).forEach((prop) => {
-      assert.equal(input.props[prop], expected.props[prop]);
+      assert.deepEqual(input.props[prop], expected.props[prop]);
     });
   });
 }
@@ -29,7 +28,7 @@ function assertKey(input, expected) {
 }
 
 function CustomComponent(props){
-  return React.createElement(ReactDOMFactories.span, props);
+  return <span {...props} />
 }
 
 describe('Renderer', () => {
@@ -43,9 +42,9 @@ describe('Renderer', () => {
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.blockquote,
+          type: 'blockquote',
           children: [{
-            type: ReactDOMFactories.p,
+            type: 'p',
             children: ['Blockquote'],
           }]
         }]);
@@ -59,7 +58,7 @@ describe('Renderer', () => {
         }), [{
           type: CustomComponent,
           children: [{
-            type: ReactDOMFactories.p,
+            type: 'p',
             children: ['Blockquote'],
           }],
         }]);
@@ -80,38 +79,38 @@ describe('Renderer', () => {
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.ul,
+          type: 'ul',
           children: [{
-            type: ReactDOMFactories.li,
+            type: 'li',
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 1'],
             }]
           }, {
-            type: ReactDOMFactories.li,
+            type: 'li',
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 2', {
-                type: ReactDOMFactories.ul,
+                type: 'ul',
                 children: [{
-                  type: ReactDOMFactories.li,
+                  type: 'li',
                   children: [{
-                    type: ReactDOMFactories.p,
+                    type: 'p',
                     children: ['Level 2 Item 1', {
-                      type: ReactDOMFactories.ul,
+                      type: 'ul',
                       children: [{
-                        type: ReactDOMFactories.li,
+                        type: 'li',
                         children: [{
-                          type: ReactDOMFactories.p,
+                          type: 'p',
                           children: ['Level 3 Item 1'],
                         }],
                       }],
                     }],
                   }],
                 }, {
-                  type: ReactDOMFactories.li,
+                  type: 'li',
                   children: [{
-                    type: ReactDOMFactories.p,
+                    type: 'p',
                     children: ['Level 2 Item 2']
                   }]
                 }],
@@ -132,25 +131,25 @@ describe('Renderer', () => {
           children: [{
             type: CustomComponent,
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 1'],
             }]
           }, {
             type: CustomComponent,
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 2', {
                 type: CustomComponent,
                 children: [{
                   type: CustomComponent,
                   children: [{
-                    type: ReactDOMFactories.p,
+                    type: 'p',
                     children: ['Level 2 Item 1', {
                       type: CustomComponent,
                       children: [{
                         type: CustomComponent,
                         children: [{
-                          type: ReactDOMFactories.p,
+                          type: 'p',
                           children: ['Level 3 Item 1'],
                         }],
                       }],
@@ -159,7 +158,7 @@ describe('Renderer', () => {
                 }, {
                   type: CustomComponent,
                   children: [{
-                    type: ReactDOMFactories.p,
+                    type: 'p',
                     children: ['Level 2 Item 2']
                   }]
                 }],
@@ -179,9 +178,9 @@ describe('Renderer', () => {
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.code,
+            type: 'code',
             children: 'Code',
           }],
         }]);
@@ -193,7 +192,7 @@ describe('Renderer', () => {
             code: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: 'Code',
@@ -211,9 +210,9 @@ describe('Renderer', () => {
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.del,
+            type: 'del',
             children: ['Deleted'],
           }],
         }]);
@@ -225,7 +224,7 @@ describe('Renderer', () => {
             del: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Deleted'],
@@ -243,9 +242,9 @@ describe('Renderer', () => {
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.em,
+            type: 'em',
             children: ['Italic'],
           }],
         }]);
@@ -257,7 +256,7 @@ describe('Renderer', () => {
             em: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Italic'],
@@ -277,9 +276,9 @@ Code
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.pre,
+          type: 'pre',
           children: [{
-            type: ReactDOMFactories.code,
+            type: 'code',
             children: 'Code',
           }],
         }]);
@@ -293,7 +292,7 @@ Code
         }), [{
           type: CustomComponent,
           children: [{
-            type: ReactDOMFactories.code,
+            type: 'code',
             children: 'Code',
           }],
         }]);
@@ -309,9 +308,9 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: ['New', {
-            type: ReactDOMFactories.br,
+            type: 'br',
           }, 'Line'],
         }]);
       });
@@ -322,7 +321,7 @@ New\nLine
             br: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: ['New', {
             type: CustomComponent,
           }, 'Line'],
@@ -339,7 +338,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h1,
+          type: 'h1',
           children: ['Heading 1'],
         }]);
       });
@@ -365,7 +364,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h2,
+          type: 'h2',
           children: ['Heading 2'],
         }]);
       });
@@ -391,7 +390,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h3,
+          type: 'h3',
           children: ['Heading 3'],
         }]);
       });
@@ -417,7 +416,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h4,
+          type: 'h4',
           children: ['Heading 4'],
         }]);
       });
@@ -443,7 +442,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h5,
+          type: 'h5',
           children: ['Heading 5'],
         }]);
       });
@@ -469,7 +468,7 @@ New\nLine
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.h6,
+          type: 'h6',
           children: ['Heading 6'],
         }]);
       });
@@ -495,7 +494,7 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.hr,
+          type: 'hr',
         }]);
       });
 
@@ -519,9 +518,9 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.img,
+            type: 'img',
           }],
         }]);
       });
@@ -532,7 +531,7 @@ ___
             img: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
           }],
@@ -549,9 +548,9 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.ins,
+            type: 'ins',
             children: ['Insert'],
           }],
         }]);
@@ -563,7 +562,7 @@ ___
             ins: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Insert'],
@@ -581,9 +580,9 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.a,
+            type: 'a',
             children: ['Link'],
           }],
         }]);
@@ -595,7 +594,7 @@ ___
             a: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Link'],
@@ -613,9 +612,9 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.mark,
+            type: 'mark',
             children: ['Mark'],
           }],
         }]);
@@ -627,7 +626,7 @@ ___
             mark: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Mark'],
@@ -647,23 +646,23 @@ ___
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.ol,
+          type: 'ol',
           children: [{
-            type: ReactDOMFactories.li,
+            type: 'li',
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 1'],
             }]
           }, {
-            type: ReactDOMFactories.li,
+            type: 'li',
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 2'],
             }]
           }, {
-            type: ReactDOMFactories.li,
+            type: 'li',
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 3'],
             }]
           }],
@@ -681,19 +680,19 @@ ___
           children: [{
             type: CustomComponent,
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 1'],
             }]
           }, {
             type: CustomComponent,
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 2'],
             }]
           }, {
             type: CustomComponent,
             children: [{
-              type: ReactDOMFactories.p,
+              type: 'p',
               children: ['Level 1 Item 3'],
             }]
           }],
@@ -710,7 +709,7 @@ Paragraph
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: ['Paragraph'],
         }]);
       });
@@ -736,9 +735,9 @@ Paragraph
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.strong,
+            type: 'strong',
             children: ['Strong'],
           }],
         }]);
@@ -750,7 +749,7 @@ Paragraph
             strong: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: ['Strong'],
@@ -768,9 +767,9 @@ Paragraph
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.sub,
+            type: 'sub',
             children: 'Subscript',
           }],
         }]);
@@ -782,7 +781,7 @@ Paragraph
             sub: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: 'Subscript',
@@ -800,9 +799,9 @@ Paragraph
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
-            type: ReactDOMFactories.sup,
+            type: 'sup',
             children: 'Superscript',
           }],
         }]);
@@ -814,7 +813,7 @@ Paragraph
             sup: CustomComponent,
           },
         }), [{
-          type: ReactDOMFactories.p,
+          type: 'p',
           children: [{
             type: CustomComponent,
             children: 'Superscript',
@@ -835,37 +834,37 @@ Paragraph
 
       it('default', () => {
         assertStructure(render(fixture), [{
-          type: ReactDOMFactories.table,
+          type: 'table',
           children: [{
-            type: ReactDOMFactories.thead,
+            type: 'thead',
             children: [{
-              type: ReactDOMFactories.tr,
+              type: 'tr',
               children: [{
-                type: ReactDOMFactories.th,
+                type: 'th',
                 children: ['Header 1'],
               }, {
-                type: ReactDOMFactories.th,
+                type: 'th',
                 children: ['Header 2'],
               }],
             }],
           }, {
-            type: ReactDOMFactories.tbody,
+            type: 'tbody',
             children: [{
-              type: ReactDOMFactories.tr,
+              type: 'tr',
               children: [{
-                type: ReactDOMFactories.td,
+                type: 'td',
                 children: ['Row 1 Cell 1'],
               }, {
-                type: ReactDOMFactories.td,
+                type: 'td',
                 children: ['Row 1 Cell 2'],
               }],
             }, {
-              type: ReactDOMFactories.tr,
+              type: 'tr',
               children: [{
-                type: ReactDOMFactories.td,
+                type: 'td',
                 children: ['Row 2 Cell 1'],
               }, {
-                type: ReactDOMFactories.td,
+                type: 'td',
                 children: ['Row 2 Cell 2'],
               }],
             }],
@@ -938,12 +937,12 @@ Paragraph
             children: [{
               children: [{
                 children: [{
-                  props: { style: 'text-align: left;' },
+                  props: { style: { textAlign: 'left' } },
                   children: [''],
                 }, {
                   children: [''],
                 }, {
-                  props: { style: 'text-align: right;' },
+                  props: { style: { textAlign: 'right' } },
                   children: [''],
                 }],
               }, { }],
