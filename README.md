@@ -80,6 +80,7 @@ new RemarkableReactRenderer({
   // 
   // Note: At the moment the following are not implemented. 
   // * abbreviations
+  // * definition lists
   // * footnotes
   // 
   components: {
