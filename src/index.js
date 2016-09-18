@@ -1,1 +1,1 @@
-export { default as default } from './lib/renderer';
+module.exports = require('./lib/renderer');

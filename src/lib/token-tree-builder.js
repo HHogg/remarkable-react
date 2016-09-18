@@ -1,4 +1,4 @@
-import * as tokenTypes from './token-types';
+const tokenTypes = require('./token-types');
 
 const TOP_LEVEL = 0;
 const OPEN_IDENTIFIER = '_open';
@@ -76,4 +76,4 @@ function buildTokenTree(tokens, index = -1, level = TOP_LEVEL) {
   return collection;
 }
 
-export default buildTokenTree;
+module.exports = buildTokenTree;

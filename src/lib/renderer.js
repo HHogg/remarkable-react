@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOMFactories from 'react/lib/ReactDOMFactories';
-import buildTokenTree from './token-tree-builder';
+const React = require('react');
+const ReactDOMFactories = require('react/lib/ReactDOMFactories');
+const buildTokenTree = require('./token-tree-builder');
 
 const defaultOptions = {
   remarkableProps: {
@@ -95,6 +95,6 @@ Renderer.prototype.getTokenProps = function(token, index) {
   });
 }
 
-export default Renderer;
+module.exports = Renderer;
 
 
