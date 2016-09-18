@@ -1,6 +1,6 @@
 {
   "name": "remarkable-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React markdown adapter for Remarkable",
   "main": "lib/index.js",
   "scripts": {
