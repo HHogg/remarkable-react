@@ -1,39 +1,91 @@
 const React = require('react');
-const ReactDOMFactories = require('react/lib/ReactDOMFactories');
 const buildTokenTree = require('./token-tree-builder');
 
 const defaultOptions = {
-  remarkableProps: {
-    align(align) {
-      return {
-        key: 'style',
-        value: align && { textAlign: align },
-      };
-    },
-    alt: true,
-    block: false,
-    content: false,
-    hLevel: false,
-    href: true,
-    level: false,
-    lines: false,
-    order: false,
-    params: false,
-    src: true,
-    tight: false,
-    title: true,
-    type: false,
-  },
-  keyGen(token, index) {
-    return index;
-  },
+  keyGen: (token, index) => index,
 };
 
-const defaultComponents = Object.keys(ReactDOMFactories)
-  .reduce((components, DOMFactoryKey) => {
-    components[DOMFactoryKey] = DOMFactoryKey;
-    return components;
-  }, {});
+const defaultComponents = {
+  a: 'a',
+  blockquote: 'blockquote',
+  br: 'br',
+  code: 'code',
+  del: 'del',
+  em: 'em',
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  hr: 'hr',
+  img: 'img',
+  ins: 'ins',
+  li: 'li',
+  mark: 'mark',
+  ol: 'ol',
+  p: 'p',
+  pre: 'pre',
+  strong: 'strong',
+  sub: 'sub',
+  sup: 'sup',
+  table: 'table',
+  tbody: 'tbody',
+  td: 'td',
+  th: 'th',
+  thead: 'thead',
+  tr: 'tr',
+  ul: 'ul',
+};
+
+const defaultRemarkableProps = {
+  align: (align) => ({
+    key: 'style',
+    value: align && { textAlign: align },
+  }),
+  alt: true,
+  block: false,
+  content: false,
+  hLevel: false,
+  href: true,
+  level: false,
+  lines: false,
+  order: false,
+  params: false,
+  src: true,
+  tight: false,
+  title: true,
+  type: false,
+};
+
+const defaultTokens = {
+  blockquote_open: 'blockquote',
+  bullet_list_open: 'ul',
+  code: 'code',
+  del_open: 'del',
+  em_open: 'em',
+  fence: ['pre', 'code'],
+  hardbreak: 'br',
+  heading_open: (token) => `h${token.hLevel}`,
+  hr: 'hr',
+  image: 'img',
+  ins_open: 'ins',
+  link_open: 'a',
+  list_item_open: 'li',
+  mark_open: 'mark',
+  ordered_list_open: 'ol',
+  paragraph_open: 'p',
+  softbreak: 'br',
+  strong_open: 'strong',
+  sub: 'sub',
+  sup: 'sup',
+  table_open: 'table',
+  tbody_open: 'tbody',
+  td_open: 'td',
+  th_open: 'th',
+  thead_open: 'thead',
+  tr_open: 'tr',
+};
 
 function Renderer(options = {}) {
   this.options = {
@@ -46,14 +98,19 @@ function Renderer(options = {}) {
     },
 
     remarkableProps: {
-      ...defaultOptions.remarkableProps,
+      ...defaultRemarkableProps,
       ...(options.remarkableProps || {}),
     },
+
+    tokens: {
+      ...defaultTokens,
+      ...(options.tokens || {}),
+    }
   };
 }
 
 Renderer.prototype.render = function(tokens = []) {
-  return this.renderTokenTree(buildTokenTree(tokens));
+  return this.renderTokenTree(buildTokenTree(this.options.tokens, tokens));
 }
 
 Renderer.prototype.renderTokenTree = function(tokens) {

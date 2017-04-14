@@ -1,5 +1,3 @@
-const tokenTypes = require('./token-types');
-
 const TOP_LEVEL = 0;
 const OPEN_IDENTIFIER = '_open';
 const CLOSE_IDENTIFIER = '_close';
@@ -17,10 +15,10 @@ function isInlineToken({ type }) {
   return type === INLINE_TYPE;
 }
 
-function getType(token) {
-  return typeof tokenTypes[token.type] === 'function'
-    ? tokenTypes[token.type](token)
-    : tokenTypes[token.type];
+function getType(tokenMap, token) {
+  return typeof tokenMap[token.type] === 'function'
+    ? tokenMap[token.type](token)
+    : tokenMap[token.type];
 }
 
 function expandToken(token, types) {
@@ -33,8 +31,8 @@ function expandToken(token, types) {
   }, null);
 }
 
-function buildToken(token) {
-  const type = getType(token);
+function buildToken(tokenMap, token) {
+  const type = getType(tokenMap, token);
 
   if (Array.isArray(type)) {
     return expandToken(token, type);
@@ -47,26 +45,26 @@ function buildToken(token) {
   };
 }
 
-function buildParentToken(tokens, index, level) {
+function buildParentToken(tokenMap, tokens, index, level) {
   return {
-    ...buildToken(tokens[index]),
-    children: buildTokenTree(tokens, index, level + 1),
+    ...buildToken(tokenMap, tokens[index]),
+    children: buildTokenTree(tokenMap, tokens, index, level + 1),
   };
 }
 
-function buildTokenTree(tokens, index = -1, level = TOP_LEVEL) {
+function buildTokenTree(tokenMap, tokens, index = -1, level = TOP_LEVEL) {
   const collection = [];
 
   while (++index < tokens.length) {
     if (level === tokens[index].level) {
       if (isInlineToken(tokens[index])) {
-        return buildTokenTree(tokens[index].children);
+        return buildTokenTree(tokenMap, tokens[index].children);
       }
 
       if (isOpenToken(tokens[index])) {
-        collection.push(buildParentToken(tokens, index, level));
+        collection.push(buildParentToken(tokenMap, tokens, index, level));
       } else if (!isCloseToken(tokens[index])) {
-        collection.push(buildToken(tokens[index]));
+        collection.push(buildToken(tokenMap, tokens[index]));
       }
     } else if (level !== TOP_LEVEL && level > tokens[index].level) {
       return collection;
