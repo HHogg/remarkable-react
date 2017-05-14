@@ -1,7 +1,9 @@
 language: node_js
+cache:
+  yarn: true
 script:
-  - npm run test
-  - npm run lint
+  - yarn test
+  - yarn lint
 after_success:
 - bash ./deploy/publish_to_npm.sh
 env:
