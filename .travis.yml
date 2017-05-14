@@ -2,3 +2,8 @@ language: node_js
 script:
   - npm run test
   - npm run lint
+after_success:
+- bash ./deploy/publish_to_npm.sh
+env:
+  global:
+  - SOURCE_BRANCH: master

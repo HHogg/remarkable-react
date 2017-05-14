@@ -1,6 +1,6 @@
 {
   "name": "remarkable-react",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "description": "React markdown adapter for Remarkable",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,8 @@
     "lint": "eslint --config .eslintrc ./src ./test",
     "prepublish": "babel ./src --out-dir ./lib",
     "test": "mocha ./test/renderer.tests.js",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "author": {
     "name": "Harrison Hogg",
@@ -16,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hhogg/remarkable-react.git"
+    "url": "https://github.com/HHogg/remarkable-react.git"
   },
   "license": "MIT",
   "keywords": [
@@ -43,7 +44,7 @@
     "eslint-plugin-react": "^6.2.1",
     "html-webpack-plugin": "^2.22.0",
     "lodash": "^4.15.0",
-    "mocha": "^3.0.2",
+    "mocha": "3.3.0",
     "node-sass": "^3.10.0",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^0.13.0",
@@ -54,6 +55,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.15.1"
+    "webpack-dev-server": "^1.15.1",
+    "semantic-release": "^6.3.6"
   }
 }
