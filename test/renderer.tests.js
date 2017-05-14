@@ -923,6 +923,24 @@ Paragraph
     });
   });
 
+  describe('tokens', () => {
+    it('custom', () => {
+      assertStructure(render('% Lorem', {}, {
+        components: {
+          video: CustomComponent,
+        },
+        tokens: {
+          video_token: 'video',
+        },
+      }), [{
+        type: 'p',
+        children: [{
+          type: CustomComponent,
+        }],
+      }]);
+    });
+  });
+
   describe('config', () => {
     describe('properties', () => {
       describe('defaults', () => {

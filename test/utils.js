@@ -2,12 +2,29 @@ import zip from 'lodash/zip';
 import Remarkable from 'remarkable';
 import RemarkableReactRenderer from '../src';
 
+function customRule(state, silent) {
+  if (state.src[state.pos] !== '%') return false;
+
+  if (!silent) {
+    state.push({
+      type: 'video_token',
+      text: state.src,
+      level: state.level,
+    })
+  }
+
+  state.pos += state.src.length;
+
+  return true
+}
+
 export function render(string, remarkableOptions, rendererOptions) {
   const remarkable = new Remarkable(remarkableOptions);
   const renderer = new RemarkableReactRenderer(rendererOptions);
 
   remarkable.renderer = renderer;
   remarkable.inline.ruler.enable(['ins', 'mark', 'sub', 'sup']);
+  remarkable.inline.ruler.push('video_rule', customRule);
 
   return remarkable.render(string);
 }

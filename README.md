@@ -42,7 +42,7 @@ console.log(md.render('# Remarkable rulezz!'));
 
 ### Options
 
-See the configuration options below that can be passed to RemarkableReactRenderer. 
+See the configuration options below that can be passed to RemarkableReactRenderer.
 
 ```js
 new RemarkableReactRenderer({
@@ -53,13 +53,13 @@ new RemarkableReactRenderer({
     return 'A Key';
   },
 
-  // This enables you to configure the properties that gets passed to 
+  // This enables you to configure the properties that gets passed to
   // the React component. The value can either be a Function, String or Boolean.
-  // 
+  //
   // > Boolean: `true` will pass it through as it is, `false` will not pass it.
   // > String: Used to remap the prop and pass through under the new name.
   // > Function(value): Returns an object with new `key` and/or `value`.
-  // 
+  //
   remarkableProps: {
     align: '',    // Default: Function that remaps to style. (For tables)
     alt: '',      // Default: true (for images)
@@ -78,12 +78,12 @@ new RemarkableReactRenderer({
   },
 
   // Pass in your own React components!
-  // 
-  // Note: At the moment the following are not implemented. 
+  //
+  // Note: At the moment the following are not implemented.
   // * abbreviations
   // * definition lists
   // * footnotes
-  // 
+  //
   components: {
     a: Component,           // Default: <a />
     blockquote: Component,  // Default: <blockquote />
@@ -114,12 +114,23 @@ new RemarkableReactRenderer({
     thead: Component,       // Default: <thead />
     tr: Component,          // Default: <tr />
     ul: Component,          // Default: <ul />
+
+    /**
+     * Custom components that are defined in the tokens
+     * section below.
+     */
+    custom_component: Component
+  },
+
+  // Pass in your own remarkable tokens!
+  tokens: {
+    custom_token: 'custom_component',
   },
 });
 ```
 
 
-## Demo 
+## Demo
 
 Run a very quick demo and see it in action.
 ```
@@ -128,7 +139,7 @@ npm run demo
 
 ## Contributing
 
-:heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy. 
+:heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy.
 
 ```
 npm run test // also available `npm run test:watch`
