@@ -51,7 +51,7 @@ Subscript: H~2~O
 
 Unordered
 
-+ Create a list by starting a line with \`+\`, \`-\`, or \`*\`
++ Create a list by starting a line with `+`, `-`, or `*`
 + Sub-lists are made by indenting 2 spaces:
   - Marker character change forces new list start:
     * Ac tristique libero volutpat at
@@ -67,7 +67,7 @@ Ordered
 
 
 1. You can use sequential numbers...
-1. ...or keep all the numbers as \`1.\`
+1. ...or keep all the numbers as `1.`
 
 Start numbering with offset:
 
@@ -77,7 +77,7 @@ Start numbering with offset:
 
 ## Code
 
-Inline \`code\`
+Inline `code`
 
 Indented code
 
@@ -89,19 +89,19 @@ Indented code
 
 Block code "fences"
 
-\`\`\`
+```
 Sample text here...
-\`\`\`
+```
 
 Syntax highlighting
 
-\`\`\` js
+``` js
 var foo = function (bar) {
   return bar++;
 };
 
 console.log(foo(5));
-\`\`\`
+```
 
 ## Tables
 

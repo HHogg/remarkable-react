@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Remarkable from 'remarkable';
+import HighlightJS from 'highlight.js';
 import RemarkableReactRenderer from '../src';
 import initialMarkdownContent from './demo.md';
+import CodeHighlighted from './CodeHighlighted';
+import 'highlight.js/styles/agate.css';
 import './demo.scss';
 
 class Demo extends Component {
@@ -14,8 +17,29 @@ class Demo extends Component {
 
   render() {
     const { markdown } = this.state;
-    const remarkable = new Remarkable();
-    const renderer = new RemarkableReactRenderer();
+    const renderer = new RemarkableReactRenderer({
+      components: {
+        code: CodeHighlighted,
+      },
+    });
+
+    /* eslint-disable no-empty */
+    const remarkable = new Remarkable({
+      highlight: function (str, lang) {
+        if (lang && HighlightJS.getLanguage(lang)) {
+          try {
+            return HighlightJS.highlight(lang, str).value;
+          } catch (err) {}
+        }
+
+        try {
+          return HighlightJS.highlightAuto(str).value;
+        } catch (err) {}
+
+        return '';
+      }
+    });
+    /* eslint-enable */
 
     remarkable.inline.ruler.enable(['ins', 'mark', 'sub', 'sup']);
     remarkable.renderer = renderer;

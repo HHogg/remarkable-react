@@ -109,11 +109,13 @@ function Renderer(options = {}) {
   };
 }
 
-Renderer.prototype.render = function(tokens = []) {
-  return this.renderTokenTree(buildTokenTree(this.options.tokens, tokens));
+Renderer.prototype.render = function(tokens = [], remarkableOptions) {
+  return this.renderTokenTree(
+    buildTokenTree(this.options.tokens, tokens),
+    remarkableOptions);
 }
 
-Renderer.prototype.renderTokenTree = function(tokens) {
+Renderer.prototype.renderTokenTree = function(tokens, remarkableOptions) {
   if (!tokens || !Array.isArray(tokens)) {
     return tokens;
   }
@@ -122,34 +124,40 @@ Renderer.prototype.renderTokenTree = function(tokens) {
     return this.options.components[token.type]
       ? React.createElement(
           this.options.components[token.type],
-          this.getTokenProps(token, index),
-          this.renderTokenTree(token.children))
+          this.getTokenProps(token, index, remarkableOptions),
+          this.renderTokenTree(token.children, remarkableOptions))
       : token.children;
   });
 }
 
-Renderer.prototype.getTokenProps = function(token, index) {
-  const { props } = token;
+Renderer.prototype.getTokenProps = function(token, index, remarkableOptions) {
+  const { props, type } = token;
+  const tokenProps = {
+    key: this.options.keyGen(token, index),
+  };
 
-  return Object.keys(props).reduce((newProps, prop) => {
+  if (typeof this.options.components[type] === 'function') {
+    tokenProps.options = remarkableOptions;
+  }
+
+  Object.keys(props).forEach((prop) => {
     if (this.options.remarkableProps.hasOwnProperty(prop)) {
       if (typeof this.options.remarkableProps[prop] === 'function') {
         const { key = prop, value = props[prop] } = this.options.remarkableProps[prop](props[prop]);
 
         if (value) {
-          newProps[key] = value;
+          tokenProps[key] = value;
         }
       } else if (typeof this.options.remarkableProps[prop] === 'string') {
-        newProps[this.options.remarkableProps[prop]] = props[prop];
-      } else if (this.options.remarkableProps[prop] === true) {
-        newProps[prop] = props[prop];
+        tokenProps[this.options.remarkableProps[prop]] = props[prop];
+      } else if (this.options.remarkableProps[prop] === true ||
+          typeof this.options.components[type] === 'function') {
+        tokenProps[prop] = props[prop];
       }
     }
-
-    return newProps;
-  }, {
-    key: this.options.keyGen(token, index),
   });
+
+  return tokenProps;
 }
 
 module.exports = Renderer;
