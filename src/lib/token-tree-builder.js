@@ -25,7 +25,7 @@ function expandToken(token, types) {
   return types.reduceRight((child, type, index) => {
     return {
       type,
-      props: index === 0 ? { ...token } : {},
+      props: token,
       children: index === types.length - 1 ? token.content : [child],
     };
   }, null);
@@ -40,7 +40,7 @@ function buildToken(tokenMap, token) {
 
   return {
     type,
-    props: { ...token },
+    props: token,
     children: token.content,
   };
 }
