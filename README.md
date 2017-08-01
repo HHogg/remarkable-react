@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/HHogg/remarkable-react.svg?branch=master)](https://travis-ci.org/HHogg/remarkable-react)
 [![npm version](https://badge.fury.io/js/remarkable-react.svg)](https://badge.fury.io/js/remarkable-react)
+[![Code Climate](https://codeclimate.com/github/HHogg/remarkable-react/badges/gpa.svg)](https://codeclimate.com/github/HHogg/remarkable-react)
 
 A configurable React component renderer for [Remarkable](https://github.com/jonschlinkert/remarkable). [Not a simple `dangerouslySetInnerHTML`!
 
