@@ -1,3 +1,5 @@
+const { assign } = require('./utils');
+
 const TOP_LEVEL = 0;
 const OPEN_IDENTIFIER = '_open';
 const CLOSE_IDENTIFIER = '_close';
@@ -46,10 +48,9 @@ function buildToken(tokenMap, token, options) {
 }
 
 function buildParentToken(tokenMap, tokens, options, index, level) {
-  return {
-    ...buildToken(tokenMap, tokens[index], options),
+  return assign({}, buildToken(tokenMap, tokens[index], options), {
     children: buildTokenTree(tokenMap, tokens, options, index, level + 1),
-  };
+  });
 }
 
 function buildTokenTree(tokenMap, tokens, options, index = -1, level = TOP_LEVEL) {

@@ -3,14 +3,6 @@ import React, { Component } from 'react';
 import { utils } from 'remarkable';
 
 export default class CodeHighlighted extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    params: PropTypes.string,
-    options: PropTypes.shape({
-      highlight: PropTypes.func,
-    }).isRequired,
-  };
-
   render() {
     const { children, params, options } = this.props;
     let fences
@@ -36,3 +28,11 @@ export default class CodeHighlighted extends Component {
     );
   }
 }
+
+CodeHighlighted.propTypes = {
+  children: PropTypes.node,
+  params: PropTypes.string,
+  options: PropTypes.shape({
+    highlight: PropTypes.func,
+  }).isRequired,
+};

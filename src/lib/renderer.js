@@ -1,5 +1,6 @@
 const React = require('react');
 const buildTokenTree = require('./token-tree-builder');
+const { assign } = require('./utils');
 
 const defaultOptions = {
   keyGen: (token, index) => index,
@@ -88,25 +89,11 @@ const defaultTokens = {
 };
 
 function Renderer(options = {}) {
-  this.options = {
-    ...defaultOptions,
-    ...options,
-
-    components: {
-      ...defaultComponents,
-      ...options.components,
-    },
-
-    remarkableProps: {
-      ...defaultRemarkableProps,
-      ...options.remarkableProps,
-    },
-
-    tokens: {
-      ...defaultTokens,
-      ...options.tokens,
-    }
-  };
+  this.options = assign({}, defaultOptions, options, {
+    components: assign({}, defaultComponents, options.components),
+    remarkableProps: assign({}, defaultRemarkableProps, options.remarkableProps),
+    tokens: assign({}, defaultTokens, options.tokens),
+  });
 }
 
 Renderer.prototype.render = function(tokens = [], remarkableOptions) {
