@@ -33,6 +33,10 @@ function flatten(tree, flat = []) {
   return tree.reduce((flat, element) => {
     flat.push(element);
 
+    if (!element) {
+      return flat;
+    }
+
     if (element.props && Array.isArray(element.props.children)) {
       flatten(element.props.children, flat);
     }

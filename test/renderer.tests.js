@@ -4,11 +4,11 @@ import { render, walkTree } from './utils';
 
 function assertStructure(input, expected) {
   walkTree(input, expected, (input, expected) => {
-    if (typeof input === 'string') {
-      assert.equal(input, expected);
+    if (!input || typeof input === 'string') {
+      assert.strictEqual(input, expected);
     } else {
       assert(isValidElement(input));
-      assert.equal(input.type, expected.type);
+      assert.strictEqual(input.type, expected.type);
     }
   });
 }
@@ -306,26 +306,37 @@ New\nLine
 
       `;
 
-      it('default', () => {
-        assertStructure(render(fixture), [{
-          type: 'p',
-          children: ['New', {
-            type: 'br',
-          }, 'Line'],
-        }]);
+      describe('with breaks true', () => {
+        it('default', () => {
+          assertStructure(render(fixture, { breaks: true }), [{
+            type: 'p',
+            children: ['New', {
+              type: 'br',
+            }, 'Line'],
+          }]);
+        });
+
+        it('custom', () => {
+          assertStructure(render(fixture, { breaks: true }, {
+            components: {
+              br: CustomComponent,
+            },
+          }), [{
+            type: 'p',
+            children: ['New', {
+              type: CustomComponent,
+            }, 'Line'],
+          }]);
+        });
       });
 
-      it('custom', () => {
-        assertStructure(render(fixture, {}, {
-          components: {
-            br: CustomComponent,
-          },
-        }), [{
-          type: 'p',
-          children: ['New', {
-            type: CustomComponent,
-          }, 'Line'],
-        }]);
+      describe('with breaks false', () => {
+        it('default', () => {
+          assertStructure(render(fixture, { breaks: false }, {}), [{
+            type: 'p',
+            children: ['New', undefined, 'Line'],
+          }]);
+        });
       });
     });
 

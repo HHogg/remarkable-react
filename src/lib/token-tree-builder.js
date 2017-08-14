@@ -15,9 +15,9 @@ function isInlineToken({ type }) {
   return type === INLINE_TYPE;
 }
 
-function getType(tokenMap, token) {
+function getType(tokenMap, token, options) {
   return typeof tokenMap[token.type] === 'function'
-    ? tokenMap[token.type](token)
+    ? tokenMap[token.type](token, options)
     : tokenMap[token.type];
 }
 
@@ -31,8 +31,8 @@ function expandToken(token, types) {
   }, null);
 }
 
-function buildToken(tokenMap, token) {
-  const type = getType(tokenMap, token);
+function buildToken(tokenMap, token, options) {
+  const type = getType(tokenMap, token, options);
 
   if (Array.isArray(type)) {
     return expandToken(token, type);
@@ -45,26 +45,26 @@ function buildToken(tokenMap, token) {
   };
 }
 
-function buildParentToken(tokenMap, tokens, index, level) {
+function buildParentToken(tokenMap, tokens, options, index, level) {
   return {
-    ...buildToken(tokenMap, tokens[index]),
-    children: buildTokenTree(tokenMap, tokens, index, level + 1),
+    ...buildToken(tokenMap, tokens[index], options),
+    children: buildTokenTree(tokenMap, tokens, options, index, level + 1),
   };
 }
 
-function buildTokenTree(tokenMap, tokens, index = -1, level = TOP_LEVEL) {
+function buildTokenTree(tokenMap, tokens, options, index = -1, level = TOP_LEVEL) {
   const collection = [];
 
   while (++index < tokens.length) {
     if (level === tokens[index].level) {
       if (isInlineToken(tokens[index])) {
-        return buildTokenTree(tokenMap, tokens[index].children);
+        return buildTokenTree(tokenMap, tokens[index].children, options);
       }
 
       if (isOpenToken(tokens[index])) {
-        collection.push(buildParentToken(tokenMap, tokens, index, level));
+        collection.push(buildParentToken(tokenMap, tokens, options, index, level));
       } else if (!isCloseToken(tokens[index])) {
-        collection.push(buildToken(tokenMap, tokens[index]));
+        collection.push(buildToken(tokenMap, tokens[index], options));
       }
     } else if (level !== TOP_LEVEL && level > tokens[index].level) {
       return collection;
