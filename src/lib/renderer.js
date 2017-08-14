@@ -75,7 +75,7 @@ const defaultTokens = {
   mark_open: 'mark',
   ordered_list_open: 'ol',
   paragraph_open: 'p',
-  softbreak: 'br',
+  softbreak: (_, options) => options.breaks ? 'br' : undefined,
   strong_open: 'strong',
   sub: 'sub',
   sup: 'sup',
@@ -94,24 +94,24 @@ function Renderer(options = {}) {
 
     components: {
       ...defaultComponents,
-      ...(options.components || {}),
+      ...options.components,
     },
 
     remarkableProps: {
       ...defaultRemarkableProps,
-      ...(options.remarkableProps || {}),
+      ...options.remarkableProps,
     },
 
     tokens: {
       ...defaultTokens,
-      ...(options.tokens || {}),
+      ...options.tokens,
     }
   };
 }
 
 Renderer.prototype.render = function(tokens = [], remarkableOptions) {
   return this.renderTokenTree(
-    buildTokenTree(this.options.tokens, tokens),
+    buildTokenTree(this.options.tokens, tokens, remarkableOptions),
     remarkableOptions);
 }
 
