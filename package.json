@@ -7,7 +7,7 @@
     "demo": "webpack-dev-server --config ./demo/webpack.config.js --progress --profile --colors",
     "lint": "eslint --config .eslintrc ./src ./test",
     "prepublish": "babel ./src --out-dir ./lib",
-    "test": "mocha ./test/renderer.tests.js",
+    "test": "jest ./test",
     "test:watch": "yarn test -- --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -44,8 +44,8 @@
     "eslint-plugin-react": "^6.2.1",
     "highlight.js": "^9.11.0",
     "html-webpack-plugin": "^2.22.0",
+    "jest": "^20.0.4",
     "lodash": "^4.15.0",
-    "mocha": "3.3.0",
     "node-sass": "^3.10.0",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^0.13.0",
