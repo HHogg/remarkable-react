@@ -2,15 +2,19 @@
   "name": "remarkable-react",
   "version": "0.0.0-development",
   "description": "React markdown adapter for Remarkable",
-  "main": "lib/index.js",
+  "main": "lib/remarkable-react.cjs.js",
+  "module": "lib/remarkable-react.esm.js",
   "scripts": {
-    "demo": "webpack-dev-server --config ./demo/webpack.config.js --progress --profile --colors",
+    "demo": "yarn prepublish && BABEL_ENV=test webpack-dev-server --config ./demo/webpack.config.js --progress --profile --colors",
     "lint": "eslint --config .eslintrc ./src ./test",
-    "prepublish": "babel ./src --out-dir ./lib",
-    "test": "jest ./test",
+    "prepublish": "BABEL_ENV=production rollup -c",
+    "test": "jest",
     "test:watch": "yarn test -- --watch",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
+  "files": [
+    "lib"
+  ],
   "author": {
     "name": "Harrison Hogg",
     "url": "https://hogg.io"
@@ -53,6 +57,11 @@
     "react-dom": "^15.3.1",
     "react-hot-loader": "^3.0.0-beta.3",
     "remarkable": "^1.7.1",
+    "rollup": "^0.47.4",
+    "rollup-plugin-babel": "^3.0.1",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "sass-loader": "^4.0.2",
     "semantic-release": "^6.3.6",
     "style-loader": "^0.13.1",

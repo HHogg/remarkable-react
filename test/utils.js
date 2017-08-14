@@ -1,6 +1,6 @@
 import zip from 'lodash/zip';
 import Remarkable from 'remarkable';
-import RemarkableReactRenderer from '../src';
+import RemarkableReactRenderer from '../src/renderer';
 
 function customRule(state, silent) {
   if (state.src[state.pos] !== '%') return false;

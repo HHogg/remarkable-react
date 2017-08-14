@@ -28,7 +28,7 @@ function assertKey(input, expected) {
 }
 
 function CustomComponent(props){
-  return <span {...props} />
+  return <span { ...props } />
 }
 
 describe('Renderer', () => {

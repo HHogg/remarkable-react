@@ -1,39 +1,27 @@
-const { assign } = require('./utils');
+import { assign } from './utils';
 
 const TOP_LEVEL = 0;
 const OPEN_IDENTIFIER = '_open';
 const CLOSE_IDENTIFIER = '_close';
 const INLINE_TYPE = 'inline';
 
-function isOpenToken({ type }) {
-  return type.includes(OPEN_IDENTIFIER);
-}
+const isOpenToken = ({ type }) => type.includes(OPEN_IDENTIFIER);
+const isCloseToken = ({ type }) => type.includes(CLOSE_IDENTIFIER);
+const isInlineToken = ({ type }) => type === INLINE_TYPE;
 
-function isCloseToken({ type }) {
-  return type.includes(CLOSE_IDENTIFIER);
-}
-
-function isInlineToken({ type }) {
-  return type === INLINE_TYPE;
-}
-
-function getType(tokenMap, token, options) {
-  return typeof tokenMap[token.type] === 'function'
+const getType = (tokenMap, token, options) =>
+  typeof tokenMap[token.type] === 'function'
     ? tokenMap[token.type](token, options)
     : tokenMap[token.type];
-}
 
-function expandToken(token, types) {
-  return types.reduceRight((child, type, index) => {
-    return {
-      type,
-      props: token,
-      children: index === types.length - 1 ? token.content : [child],
-    };
-  }, null);
-}
+const expandToken = (token, types) =>
+  types.reduceRight((child, type, index) => ({
+    type,
+    props: token,
+    children: index === types.length - 1 ? token.content : [child],
+  }) , null);
 
-function buildToken(tokenMap, token, options) {
+const buildToken = (tokenMap, token, options) => {
   const type = getType(tokenMap, token, options);
 
   if (Array.isArray(type)) {
@@ -47,13 +35,12 @@ function buildToken(tokenMap, token, options) {
   };
 }
 
-function buildParentToken(tokenMap, tokens, options, index, level) {
-  return assign({}, buildToken(tokenMap, tokens[index], options), {
+const buildParentToken = (tokenMap, tokens, options, index, level) =>
+  assign({}, buildToken(tokenMap, tokens[index], options), {
     children: buildTokenTree(tokenMap, tokens, options, index, level + 1),
   });
-}
 
-function buildTokenTree(tokenMap, tokens, options, index = -1, level = TOP_LEVEL) {
+const buildTokenTree = (tokenMap, tokens, options, index = -1, level = TOP_LEVEL) => {
   const collection = [];
 
   while (++index < tokens.length) {
@@ -75,4 +62,4 @@ function buildTokenTree(tokenMap, tokens, options, index = -1, level = TOP_LEVEL
   return collection;
 }
 
-module.exports = buildTokenTree;
+export default buildTokenTree;

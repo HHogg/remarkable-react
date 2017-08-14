@@ -1,9 +1,12 @@
 {
-  "presets": [
-    "react",
-    "es2015",
-  ],
-  "ignore": [
-    "/node_modules\//"
-  ]
+  "env": {
+    "production": {
+      "presets": [ "react", ["es2015", { "modules": false }] ],
+      "ignore": [ "/node_modules\//" ]
+    },
+    "test": {
+      "presets": [ "react", "es2015" ],
+      "ignore": [ "/node_modules\//" ]
+    }
+  }
 }

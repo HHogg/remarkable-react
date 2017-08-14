@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Remarkable from 'remarkable';
 import HighlightJS from 'highlight.js';
-import RemarkableReactRenderer from '../src';
+import RemarkableReactRenderer from '../';
 import initialMarkdownContent from './demo.md';
 import CodeHighlighted from './CodeHighlighted';
 import 'highlight.js/styles/agate.css';
