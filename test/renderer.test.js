@@ -16,7 +16,15 @@ function assertStructure(input, expected) {
 function assertProps(input, expected) {
   walkTree(input, expected, (input, expected) => {
     Object.keys((expected.props || {})).forEach((prop) => {
-      assert.deepEqual(input.props[prop], expected.props[prop]);
+      if (prop !== 'children' && input.props && expected.props) {
+        assert.deepEqual(input.props[prop], expected.props[prop]);
+      }
+    });
+
+    Object.keys((input.props || {})).forEach((prop) => {
+      if (prop !== 'children' && input.props && expected.props) {
+        assert.deepEqual(input.props[prop], expected.props[prop]);
+      }
     });
   });
 }
@@ -988,6 +996,8 @@ Paragraph
             children: [{
               props: {
                 alt: 'Alt',
+                src: '',
+                title: '',
               },
             }],
           }]);
@@ -1043,6 +1053,8 @@ Paragraph
             children: [{
               props: {
                 href: 'http://google.com',
+                target: '',
+                title: '',
               },
             }],
           }]);
@@ -1072,6 +1084,42 @@ Paragraph
               lines: undefined,
             },
           }]);
+        });
+
+        describe('[linkTarget]', () => {
+          it('with remarkableOption', () => {
+            assertProps(render(`
+
+[Link](http://link.com "Title")
+
+            `, { linkTarget: '_blank' }), [{
+              children: [{
+                children: [''],
+                props: {
+                  href: 'http://link.com',
+                  target: '_blank',
+                  title: 'Title',
+                },
+              }],
+            }]);
+          });
+
+          it('without remarkableOption', () => {
+            assertProps(render(`
+
+[Link](http://link.com "Title")
+
+           `,), [{
+              children: [{
+                children: [''],
+                props: {
+                  href: 'http://link.com',
+                  target: '',
+                  title: 'Title',
+                },
+              }],
+            }]);
+          });
         });
 
         it('[order]', () => {
@@ -1114,7 +1162,9 @@ Code
           `), [{
             children: [{
               props: {
+                alt: '',
                 src: 'http://google.com',
+                title: '',
               },
             }],
           }]);
@@ -1145,6 +1195,8 @@ Code
           `), [{
             children: [{
               props: {
+                alt: '',
+                src: 'http://google.com',
                 title: 'Title',
               },
             }],
@@ -1183,7 +1235,9 @@ Code
             }), [{
               children: [{
                 props: {
+                  alt: '',
                   newTitle: 'Title',
+                  src: 'http://google.com',
                   title: undefined,
                 },
               }],
@@ -1206,6 +1260,8 @@ Code
             }), [{
               children: [{
                 props: {
+                  alt: '',
+                  src: 'http://google.com',
                   title: 'TITLE',
                 },
               }],
@@ -1225,7 +1281,9 @@ Code
           }), [{
             children: [{
               props: {
+                alt: '',
                 newTitle: 'Title',
+                src: 'http://google.com',
                 title: undefined,
               },
             }],
@@ -1245,6 +1303,9 @@ Code
             }), [{
               children: [{
                 props: {
+                  alt: '',
+                  src: 'http://google.com',
+                  title: 'Title',
                   type: 'image',
                 },
               }],
@@ -1263,6 +1324,8 @@ Code
             }), [{
               children: [{
                 props: {
+                  alt: '',
+                  src: 'http://google.com',
                   title: undefined,
                 },
               }],

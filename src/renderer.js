@@ -51,6 +51,7 @@ const defaultRemarkableProps = {
   href: true,
   level: false,
   lines: false,
+  linkTarget: (target, type) => type === 'a' && ({ key: 'target' }),
   order: false,
   params: false,
   src: true,
@@ -118,6 +119,32 @@ export default class Renderer {
     });
   }
 
+  getTokenProp(type, prop, propValue) {
+    if (this.options.remarkableProps.hasOwnProperty(prop)) {
+      if (typeof this.options.remarkableProps[prop] === 'function') {
+        const keyValue = this.options.remarkableProps[prop](propValue, type);
+
+        if (keyValue) {
+          return {
+            key: keyValue.key || prop,
+            value: keyValue.value || propValue,
+          };
+        }
+      } else if (typeof this.options.remarkableProps[prop] === 'string') {
+        return {
+          key: this.options.remarkableProps[prop],
+          value: propValue,
+        }
+      } else if (this.options.remarkableProps[prop] === true ||
+          typeof this.options.components[type] === 'function') {
+        return {
+          key: prop,
+          value: propValue,
+        }
+      }
+    }
+  }
+
   getTokenProps(token, index, remarkableOptions) {
     const { props, type } = token;
     const tokenProps = {
@@ -128,21 +155,11 @@ export default class Renderer {
       tokenProps.options = remarkableOptions;
     }
 
-    Object.keys(props).forEach((prop) => {
-      if (this.options.remarkableProps.hasOwnProperty(prop)) {
-        if (typeof this.options.remarkableProps[prop] === 'function') {
-          const { key = prop, value = props[prop] } = this.options.remarkableProps[prop](props[prop]);
-
-          if (value) {
-            tokenProps[key] = value;
-          }
-        } else if (typeof this.options.remarkableProps[prop] === 'string') {
-          tokenProps[this.options.remarkableProps[prop]] = props[prop];
-        } else if (this.options.remarkableProps[prop] === true ||
-            typeof this.options.components[type] === 'function') {
-          tokenProps[prop] = props[prop];
-        }
-      }
+    [props, remarkableOptions].forEach((props) => {
+      Object.keys(props).forEach((prop) => {
+        const tokenProp = this.getTokenProp(type, prop, props[prop]);
+        if (tokenProp) tokenProps[tokenProp.key] = tokenProp.value;
+      });
     });
 
     return tokenProps;
