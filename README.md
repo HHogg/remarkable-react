@@ -59,7 +59,7 @@ new RemarkableReactRenderer({
   //
   // > Boolean: `true` will pass it through as it is, `false` will not pass it.
   // > String: Used to remap the prop and pass through under the new name.
-  // > Function(value): Returns an object with new `key` and/or `value`.
+  // > Function(value, type): Returns an object with new `key` and/or `value`.
   //
   remarkableProps: {
     align: '',    // Default: Function that remaps to style. (For tables)
@@ -123,8 +123,16 @@ new RemarkableReactRenderer({
     custom_component: Component
   },
 
-  // Pass in your own remarkable tokens!
+  // This enables you to configure the mapping of remarkable tokens to component (above).
+  // The value can either be a Function, String or Array.
+  //
+  // > Array[String]: Will nest components from parent down.
+  // > String: Used to map directly to a single component.
+  // > Function(tokenObject, remarkableOptions): Return a string or Component.
+  //
   tokens: {
+
+    // Use this to also handle your custom remarkable tokens!
     custom_token: 'custom_component',
   },
 });
