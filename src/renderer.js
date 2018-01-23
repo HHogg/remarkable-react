@@ -40,10 +40,10 @@ const defaultComponents = {
 };
 
 const defaultRemarkableProps = {
-  align: (align) => ({
+  align: (align) => align ? ({
     key: 'style',
-    value: align && { textAlign: align },
-  }),
+    value: { textAlign: align },
+  }) : false,
   alt: true,
   block: false,
   content: false,
