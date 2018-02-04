@@ -127,7 +127,7 @@ export default class Renderer {
         if (keyValue) {
           return {
             key: keyValue.key || prop,
-            value: keyValue.value || propValue,
+            value: keyValue.hasOwnProperty('value') ? keyValue.value : propValue,
           };
         }
       } else if (typeof this.options.remarkableProps[prop] === 'string') {
