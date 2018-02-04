@@ -1267,6 +1267,54 @@ Code
               }],
             }]);
           });
+
+          it('boolean value (true)', () => {
+            assertProps(render(`
+
+![](http://google.com "true")
+
+            `, {}, {
+              remarkableProps: {
+                title(value) {
+                  return {
+                    value: value && value.toLowerCase() == 'true',
+                  };
+                }
+              },
+            }), [{
+              children: [{
+                props: {
+                  alt: '',
+                  src: 'http://google.com',
+                  title: true,
+                },
+              }],
+            }]);
+          });
+
+          it('boolean value (false)', () => {
+            assertProps(render(`
+
+![](http://google.com "false")
+
+            `, {}, {
+              remarkableProps: {
+                title(value) {
+                  return {
+                    value: value && value.toLowerCase() == 'true',
+                  };
+                }
+              },
+            }), [{
+              children: [{
+                props: {
+                  alt: '',
+                  src: 'http://google.com',
+                  title: false,
+                },
+              }],
+            }]);
+          });
         });
 
         it('string', () => {
