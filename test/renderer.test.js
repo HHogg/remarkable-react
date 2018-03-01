@@ -940,6 +940,37 @@ Paragraph
         }]);
       });
     });
+
+    describe('html', () => {
+      const fixture = `
+
+  <p>Hello</p>
+  <iframe src="/something.html" />
+
+  `;
+
+      it('default', () => {
+        assertStructure(render(fixture, {
+          html: true,
+        }, {}), [{
+          type: 'div',
+          children: [],
+        }]);
+      });
+
+      it('custom', () => {
+        assertStructure(render(fixture, {
+          html: true,
+        }, {
+          components: {
+            html: 'p',
+          },
+        }), [{
+          type: 'p',
+          children: [],
+        }]);
+      });
+    });
   });
 
   describe('tokens', () => {
@@ -1017,19 +1048,38 @@ Paragraph
           }]);
         });
 
-        it('[content]', () => {
-          assertProps(render(`
+        describe('[content]', () => {
+          it('default', () => {
+            assertProps(render(`
 
 \`Code\`
 
-          `), [{
-            children: [{
+            `), [{
+              children: [{
+                props: {
+                  content: undefined,
+                },
+              }],
+            }]);
+          });
+
+          it('with html', () => {
+            assertProps(render(`
+
+<p>Hello</p>
+<iframe src="/something.html" />
+
+            `, { html: true }), [{
               props: {
-                content: undefined,
+                children: null,
+                dangerouslySetInnerHTML: {
+                  __html: '<p>Hello</p>\n<iframe src="/something.html" />\n'
+                },
               },
-            }],
-          }]);
+            }]);
+          });
         });
+
 
         it('[hLevel]', () => {
           assertProps(render(`

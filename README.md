@@ -65,7 +65,7 @@ new RemarkableReactRenderer({
     align: '',    // Default: Function that remaps to style. (For tables)
     alt: '',      // Default: true (for images)
     block: '',    // Default: false
-    content: '',  // Default: false
+    content: '',  // Default: Function that returns `dangerouslySetInnerHTML` when HTML is enabled.
     hLevel:'',    // Default: false
     href:'',      // Default: true (for links)
     level: '',    // Default: false
@@ -98,6 +98,7 @@ new RemarkableReactRenderer({
     h4: Component,          // Default: <h4 />
     h5: Component,          // Default: <h5 />
     h6: Component,          // Default: <h6 />
+    html: Component,        // Default: <div />
     img: Component,         // Default: <img />
     ins: Component,         // Default: <ins />
     li: Component,          // Default: <li />

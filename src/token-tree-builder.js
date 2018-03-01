@@ -31,7 +31,7 @@ const buildToken = (tokenMap, token, options) => {
   return {
     type,
     props: token,
-    children: token.content,
+    children: options.html && type === 'html' ? null : token.content,
   };
 }
 

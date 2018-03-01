@@ -20,6 +20,7 @@ const defaultComponents = {
   h5: 'h5',
   h6: 'h6',
   hr: 'hr',
+  html: 'div',
   img: 'img',
   ins: 'ins',
   li: 'li',
@@ -46,12 +47,17 @@ const defaultRemarkableProps = {
   }) : false,
   alt: true,
   block: false,
-  content: false,
+  content: (content, type) => type === 'html' && ({
+    key: 'dangerouslySetInnerHTML',
+    value: { __html: content }
+  }),
   hLevel: false,
   href: true,
   level: false,
   lines: false,
-  linkTarget: (target, type) => type === 'a' && ({ key: 'target' }),
+  linkTarget: (target, type) => type === 'a' && ({
+    key: 'target'
+  }),
   order: false,
   params: false,
   src: true,
@@ -70,6 +76,7 @@ const defaultTokens = {
   hardbreak: 'br',
   heading_open: (token) => `h${token.hLevel}`,
   hr: 'hr',
+  htmlblock: (_, { html }) => html && 'html',
   image: 'img',
   ins_open: 'ins',
   link_open: 'a',
