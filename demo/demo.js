@@ -25,6 +25,7 @@ class Demo extends Component {
 
     /* eslint-disable no-empty */
     const remarkable = new Remarkable({
+      html: true,
       highlight: function (str, lang) {
         if (lang && HighlightJS.getLanguage(lang)) {
           try {
