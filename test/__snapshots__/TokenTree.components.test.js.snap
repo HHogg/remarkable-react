@@ -1,0 +1,592 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TokenTree components <a> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Link",
+        ],
+        "props": Object {
+          "href": "http://link.com",
+          "title": "Title",
+        },
+        "type": "a",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <blockquote> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Blockquote",
+        ],
+        "props": Object {},
+        "type": "p",
+      },
+    ],
+    "props": Object {},
+    "type": "blockquote",
+  },
+]
+`;
+
+exports[`TokenTree components <br> with breaks 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "New",
+      Object {
+        "children": undefined,
+        "props": Object {},
+        "type": "br",
+      },
+      "Line",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <br> without breaks 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "New",
+      undefined,
+      "Line",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <code> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Code",
+        "props": Object {},
+        "type": "code",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <del> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Deleted",
+        ],
+        "props": Object {},
+        "type": "del",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <em> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Italic",
+        ],
+        "props": Object {},
+        "type": "em",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <h1> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 1",
+    ],
+    "props": Object {},
+    "type": "h1",
+  },
+]
+`;
+
+exports[`TokenTree components <h2> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 2",
+    ],
+    "props": Object {},
+    "type": "h2",
+  },
+]
+`;
+
+exports[`TokenTree components <h3> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 3",
+    ],
+    "props": Object {},
+    "type": "h3",
+  },
+]
+`;
+
+exports[`TokenTree components <h4> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 4",
+    ],
+    "props": Object {},
+    "type": "h4",
+  },
+]
+`;
+
+exports[`TokenTree components <h5> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 5",
+    ],
+    "props": Object {},
+    "type": "h5",
+  },
+]
+`;
+
+exports[`TokenTree components <h6> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 6",
+    ],
+    "props": Object {},
+    "type": "h6",
+  },
+]
+`;
+
+exports[`TokenTree components <hr> 1`] = `
+Array [
+  Object {
+    "children": undefined,
+    "props": Object {},
+    "type": "hr",
+  },
+]
+`;
+
+exports[`TokenTree components <html> with html 1`] = `
+Array [
+  Object {
+    "children": null,
+    "props": Object {
+      "dangerouslySetInnerHTML": Object {
+        "__html": "<p>Hello</p>
+<iframe src=\\"/something.html\\" />
+",
+      },
+    },
+    "type": "html",
+  },
+]
+`;
+
+exports[`TokenTree components <html> without html 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "<p>Hello</p>",
+      undefined,
+      "<iframe src=\\"/something.html\\" />",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <img> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "Alt",
+          "src": "http://image.com",
+          "title": "Title",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <ins> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Insert",
+        ],
+        "props": Object {},
+        "type": "ins",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <mark> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Mark",
+        ],
+        "props": Object {},
+        "type": "mark",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <ol> <li> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "Level 1 Item 1",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "Level 1 Item 2",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "Level 1 Item 3",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+    ],
+    "props": Object {},
+    "type": "ol",
+  },
+]
+`;
+
+exports[`TokenTree components <p> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Paragraph",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <pre> <code> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Code
+",
+        "props": Object {},
+        "type": "code",
+      },
+    ],
+    "props": Object {},
+    "type": "pre",
+  },
+]
+`;
+
+exports[`TokenTree components <strong> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Strong",
+        ],
+        "props": Object {},
+        "type": "strong",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <sub> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Subscript",
+        "props": Object {},
+        "type": "sub",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <sup> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Superscript",
+        "props": Object {},
+        "type": "sup",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree components <table> <thead> <tbody> <tr> <th> <td> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Header 1",
+                ],
+                "props": Object {},
+                "type": "th",
+              },
+              Object {
+                "children": Array [
+                  "Header 2",
+                ],
+                "props": Object {},
+                "type": "th",
+              },
+            ],
+            "props": Object {},
+            "type": "tr",
+          },
+        ],
+        "props": Object {},
+        "type": "thead",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Row 1 Cell 1",
+                ],
+                "props": Object {},
+                "type": "td",
+              },
+              Object {
+                "children": Array [
+                  "Row 1 Cell 2",
+                ],
+                "props": Object {},
+                "type": "td",
+              },
+            ],
+            "props": Object {},
+            "type": "tr",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Row 2 Cell 1",
+                ],
+                "props": Object {},
+                "type": "td",
+              },
+              Object {
+                "children": Array [
+                  "Row 2 Cell 2",
+                ],
+                "props": Object {},
+                "type": "td",
+              },
+            ],
+            "props": Object {},
+            "type": "tr",
+          },
+        ],
+        "props": Object {},
+        "type": "tbody",
+      },
+    ],
+    "props": Object {},
+    "type": "table",
+  },
+]
+`;
+
+exports[`TokenTree components <ul> <li> 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "Level 1 Item 1",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "Level 1 Item 2",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      "Level 2 Item 1",
+                    ],
+                    "props": Object {},
+                    "type": "p",
+                  },
+                  Object {
+                    "children": Array [
+                      Object {
+                        "children": Array [
+                          Object {
+                            "children": Array [
+                              "Level 3 Item 1",
+                            ],
+                            "props": Object {},
+                            "type": "p",
+                          },
+                        ],
+                        "props": Object {},
+                        "type": "li",
+                      },
+                    ],
+                    "props": Object {},
+                    "type": "ul",
+                  },
+                ],
+                "props": Object {},
+                "type": "li",
+              },
+              Object {
+                "children": Array [
+                  Object {
+                    "children": Array [
+                      "Level 2 Item 2",
+                    ],
+                    "props": Object {},
+                    "type": "p",
+                  },
+                ],
+                "props": Object {},
+                "type": "li",
+              },
+            ],
+            "props": Object {},
+            "type": "ul",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+    ],
+    "props": Object {},
+    "type": "ul",
+  },
+]
+`;

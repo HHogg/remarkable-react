@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderer components <a> 1`] = `
+<p>
+  <a
+    href="http://link.com"
+    title="Title"
+  >
+    Link
+  </a>
+</p>
+`;
+
+exports[`Renderer components <blockquote> 1`] = `
+<blockquote>
+  <p>
+    Blockquote
+  </p>
+</blockquote>
+`;
+
+exports[`Renderer components <br> with breaks 1`] = `
+<p>
+  New
+  <br />
+  Line
+</p>
+`;
+
+exports[`Renderer components <br> without breaks 1`] = `
+<p>
+  New
+  Line
+</p>
+`;
+
+exports[`Renderer components <code> 1`] = `
+<p>
+  <code>
+    Code
+  </code>
+</p>
+`;
+
+exports[`Renderer components <del> 1`] = `
+<p>
+  <del>
+    Deleted
+  </del>
+</p>
+`;
+
+exports[`Renderer components <em> 1`] = `
+<p>
+  <em>
+    Italic
+  </em>
+</p>
+`;
+
+exports[`Renderer components <h1> 1`] = `
+<h1>
+  Heading 1
+</h1>
+`;
+
+exports[`Renderer components <h2> 1`] = `
+<h2>
+  Heading 2
+</h2>
+`;
+
+exports[`Renderer components <h3> 1`] = `
+<h3>
+  Heading 3
+</h3>
+`;
+
+exports[`Renderer components <h4> 1`] = `
+<h4>
+  Heading 4
+</h4>
+`;
+
+exports[`Renderer components <h5> 1`] = `
+<h5>
+  Heading 5
+</h5>
+`;
+
+exports[`Renderer components <h6> 1`] = `
+<h6>
+  Heading 6
+</h6>
+`;
+
+exports[`Renderer components <hr> 1`] = `<hr />`;
+
+exports[`Renderer components <html> with html 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>Hello</p>
+    <iframe src=\\"/something.html\\" />
+    ",
+    }
+  }
+/>
+`;
+
+exports[`Renderer components <html> without html 1`] = `
+<p>
+  &lt;p&gt;Hello&lt;/p&gt;
+  &lt;iframe src="/something.html" /&gt;
+</p>
+`;
+
+exports[`Renderer components <img> 1`] = `
+<p>
+  <img
+    alt="Alt"
+    src="http://image.com"
+    title="Title"
+  />
+</p>
+`;
+
+exports[`Renderer components <ins> 1`] = `
+<p>
+  <ins>
+    Insert
+  </ins>
+</p>
+`;
+
+exports[`Renderer components <mark> 1`] = `
+<p>
+  <mark>
+    Mark
+  </mark>
+</p>
+`;
+
+exports[`Renderer components <ol> <li> 1`] = `
+<ol>
+  <li>
+    <p>
+      Level 1 Item 1
+    </p>
+  </li>
+  <li>
+    <p>
+      Level 1 Item 2
+    </p>
+  </li>
+  <li>
+    <p>
+      Level 1 Item 3
+    </p>
+  </li>
+</ol>
+`;
+
+exports[`Renderer components <p> 1`] = `
+<p>
+  Paragraph
+</p>
+`;
+
+exports[`Renderer components <pre> <code> 1`] = `
+<pre>
+  <code>
+    Code
+    
+  </code>
+</pre>
+`;
+
+exports[`Renderer components <strong> 1`] = `
+<p>
+  <strong>
+    Strong
+  </strong>
+</p>
+`;
+
+exports[`Renderer components <sub> 1`] = `
+<p>
+  <sub>
+    Subscript
+  </sub>
+</p>
+`;
+
+exports[`Renderer components <sup> 1`] = `
+<p>
+  <sup>
+    Superscript
+  </sup>
+</p>
+`;
+
+exports[`Renderer components <table> <thead> <tbody> <tr> <th> <td> 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        Header 1
+      </th>
+      <th>
+        Header 2
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        Row 1 Cell 1
+      </td>
+      <td>
+        Row 1 Cell 2
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Row 2 Cell 1
+      </td>
+      <td>
+        Row 2 Cell 2
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Renderer components <ul> <li> 1`] = `
+<ul>
+  <li>
+    <p>
+      Level 1 Item 1
+    </p>
+  </li>
+  <li>
+    <p>
+      Level 1 Item 2
+    </p>
+    <ul>
+      <li>
+        <p>
+          Level 2 Item 1
+        </p>
+        <ul>
+          <li>
+            <p>
+              Level 3 Item 1
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          Level 2 Item 2
+        </p>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;
