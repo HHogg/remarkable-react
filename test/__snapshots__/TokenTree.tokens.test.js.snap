@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TokenTree tokens custom 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {},
+        "type": "video",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;

@@ -1,0 +1,437 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TokenTree props [align] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Header 1",
+                ],
+                "props": Object {
+                  "style": Object {
+                    "textAlign": "left",
+                  },
+                },
+                "type": "th",
+              },
+              Object {
+                "children": Array [
+                  "Header 2",
+                ],
+                "props": Object {},
+                "type": "th",
+              },
+              Object {
+                "children": Array [
+                  "Header 3",
+                ],
+                "props": Object {
+                  "style": Object {
+                    "textAlign": "right",
+                  },
+                },
+                "type": "th",
+              },
+            ],
+            "props": Object {},
+            "type": "tr",
+          },
+        ],
+        "props": Object {},
+        "type": "thead",
+      },
+      Object {
+        "children": Array [],
+        "props": Object {},
+        "type": "tbody",
+      },
+    ],
+    "props": Object {},
+    "type": "table",
+  },
+]
+`;
+
+exports[`TokenTree props [alt] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "Alt",
+          "src": "",
+          "title": "",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [block] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Code",
+        "props": Object {},
+        "type": "code",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [content] with option html 1`] = `
+Array [
+  Object {
+    "children": null,
+    "props": Object {
+      "dangerouslySetInnerHTML": Object {
+        "__html": "<p>Hello</p>
+<iframe src=\\"/something.html\\" />
+",
+      },
+    },
+    "type": "html",
+  },
+]
+`;
+
+exports[`TokenTree props [content] without option html 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "<p>Hello</p>",
+      undefined,
+      "<iframe src=\\"/something.html\\" />",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [hLevel] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 1",
+    ],
+    "props": Object {},
+    "type": "h1",
+  },
+]
+`;
+
+exports[`TokenTree props [href] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "props": Object {
+          "href": "http://google.com",
+          "title": "",
+        },
+        "type": "a",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [level] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Paragraph",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [lines] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Paragraph",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [linkTarget] with remarkableOption 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Link",
+        ],
+        "props": Object {
+          "href": "http://link.com",
+          "target": "_blank",
+          "title": "Title",
+        },
+        "type": "a",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [linkTarget] without remarkableOption 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          "Link",
+        ],
+        "props": Object {
+          "href": "http://link.com",
+          "title": "Title",
+        },
+        "type": "a",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [order] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              "List item 1",
+            ],
+            "props": Object {},
+            "type": "p",
+          },
+        ],
+        "props": Object {},
+        "type": "li",
+      },
+    ],
+    "props": Object {},
+    "type": "ol",
+  },
+]
+`;
+
+exports[`TokenTree props [params] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": "Code
+",
+        "props": Object {},
+        "type": "code",
+      },
+    ],
+    "props": Object {},
+    "type": "pre",
+  },
+]
+`;
+
+exports[`TokenTree props [src] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+          "title": "",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [title] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+          "title": "Title",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`TokenTree props [type] 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Heading 1",
+    ],
+    "props": Object {},
+    "type": "h1",
+  },
+]
+`;
+
+exports[`types Boolean false 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`types Boolean true 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+          "title": "Title",
+          "type": "image",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {
+      "type": "paragraph_open",
+    },
+    "type": "p",
+  },
+]
+`;
+
+exports[`types Function Boolean (false) 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+          "title": false,
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`types Function Boolean (true) 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "src": "http://google.com",
+          "title": true,
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`types Function String 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "newTitle": "TITLE",
+          "src": "http://google.com",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
+
+exports[`types String 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": undefined,
+        "props": Object {
+          "alt": "",
+          "newTitle": "Title",
+          "src": "http://google.com",
+        },
+        "type": "img",
+      },
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+]
+`;
