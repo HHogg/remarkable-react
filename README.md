@@ -11,6 +11,10 @@ A configurable React component renderer for [Remarkable](https://github.com/jons
 
 ```
 npm install remarkable-react --save
+
+# OR
+
+yarn add remarkable-react
 ```
 
 
@@ -19,10 +23,10 @@ npm install remarkable-react --save
 Simply instantiate a new RemarkableReactRenderer and replace the standard Remarkable renderer. Like so...
 
 ```js
-var Remarkable = require('remarkable');
-var RemarkableReactRenderer = require('remarkable-react');
+import Remarkable from 'remarkable';
+import RemarkableReactRenderer from 'remarkable-react';
 
-var md = new Remarkable();
+const md = new Remarkable();
 md.renderer = new RemarkableReactRenderer();
 
 console.log(md.render('# Remarkable rulezz!'));
@@ -139,21 +143,13 @@ new RemarkableReactRenderer({
 });
 ```
 
-
-## Demo
-
-Run a very quick demo and see it in action.
-```
-npm run demo
-```
-
 ## Contributing
 
 :heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy.
 
 ```
-npm run test // also available `npm run test:watch`
-npm run lint
+yarn test
+yarn lint
 ```
 
 ## License
