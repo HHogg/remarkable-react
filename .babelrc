@@ -1,12 +1,15 @@
 {
+  "presets": [
+    ["env", {
+      "modules": false
+    }]
+  ],
   "env": {
     "production": {
-      "presets": [ "react", ["es2015", { "modules": false }] ],
-      "ignore": [ "/node_modules\//" ]
+      "plugins": ["external-helpers"]
     },
     "test": {
-      "presets": [ "react", "es2015" ],
-      "ignore": [ "/node_modules\//" ]
+      plugins: ["transform-es2015-modules-commonjs"]
     }
   }
 }
