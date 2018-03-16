@@ -59,6 +59,28 @@ New\nLine
     `)).toMatchSnapshot();
   });
 
+  describe('<footnote>', () => {
+    test('inline', () => {
+      expect(buildTokenTree(`
+
+Footnote^[Foonote body].
+
+      `)).toMatchSnapshot();
+    });
+
+    test('separated', () => {
+      expect(buildTokenTree(`
+
+Footnote[^first].
+
+[^first]: #### Footnote
+
+    Footnote body
+
+      `)).toMatchSnapshot();
+    });
+  });
+
   test('<h1>', () => {
     expect(buildTokenTree(`
 

@@ -123,6 +123,137 @@ Array [
 ]
 `;
 
+exports[`TokenTree components <footnote> inline 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Footnote",
+      Object {
+        "children": Array [
+          Object {
+            "children": "[1]",
+            "props": Object {
+              "href": "#fn0",
+            },
+            "type": "a",
+          },
+        ],
+        "props": Object {
+          "id": "fn0:0",
+        },
+        "type": "sup",
+      },
+      ".",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Foonote body",
+                  Object {
+                    "children": "↩",
+                    "props": Object {
+                      "href": "fn0:0",
+                    },
+                    "type": "a",
+                  },
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "id": "#fn0",
+            },
+            "type": "li",
+          },
+        ],
+        "props": Object {},
+        "type": "ol",
+      },
+    ],
+    "props": Object {},
+    "type": "section",
+  },
+]
+`;
+
+exports[`TokenTree components <footnote> separated 1`] = `
+Array [
+  Object {
+    "children": Array [
+      "Footnote",
+      Object {
+        "children": Array [
+          Object {
+            "children": "[1]",
+            "props": Object {
+              "href": "#fn0",
+            },
+            "type": "a",
+          },
+        ],
+        "props": Object {
+          "id": "fn0:0",
+        },
+        "type": "sup",
+      },
+      ".",
+    ],
+    "props": Object {},
+    "type": "p",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [
+          Object {
+            "children": Array [
+              Object {
+                "children": Array [
+                  "Footnote",
+                ],
+                "props": Object {},
+                "type": "h4",
+              },
+              Object {
+                "children": Array [
+                  "Footnote body",
+                  Object {
+                    "children": "↩",
+                    "props": Object {
+                      "href": "fn0:0",
+                    },
+                    "type": "a",
+                  },
+                ],
+                "props": Object {},
+                "type": "p",
+              },
+            ],
+            "props": Object {
+              "id": "#fn0",
+            },
+            "type": "li",
+          },
+        ],
+        "props": Object {},
+        "type": "ol",
+      },
+    ],
+    "props": Object {},
+    "type": "section",
+  },
+]
+`;
+
 exports[`TokenTree components <h1> 1`] = `
 Array [
   Object {
