@@ -36,7 +36,9 @@ export default class TokenTree {
     return ({
       type,
       props: this.buildTokenProps(type, token),
-      children: token.content,
+      children: children || (this.options.children[token.type]
+        ? this.options.children[token.type](token, this.rOptions)
+        : token.content),
     });
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import assign from './assign';
+import defaultChildren from './defaultChildren';
 import defaultComponents from './defaultComponents';
 import defaultRemarkableProps from './defaultRemarkableProps';
 import defaultTokens from './defaultTokens';
@@ -10,6 +11,7 @@ export default class Renderer {
     this.options = assign({
       keyGen: (token, index) => index,
     }, options, {
+      children: assign({}, defaultChildren, options.children),
       components: assign({}, defaultComponents, options.components),
       remarkableProps: assign({}, defaultRemarkableProps, options.remarkableProps),
       tokens: assign({}, defaultTokens, options.tokens),

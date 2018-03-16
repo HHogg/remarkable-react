@@ -140,6 +140,12 @@ new RemarkableReactRenderer({
     // Use this to also handle your custom remarkable tokens!
     custom_token: 'custom_component',
   },
+
+  // This enables you to quickly configure how children are rendered for tokens.
+  // By default the `content` of a token is mapped to `children`.
+  children: {
+    footnote_anchor: () => `↩`,
+  },
 });
 ```
 
