@@ -20,6 +20,7 @@ export default {
   ol: 'ol',
   p: 'p',
   pre: 'pre',
+  section: 'section',
   strong: 'strong',
   sub: 'sub',
   sup: 'sup',

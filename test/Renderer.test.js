@@ -63,6 +63,28 @@ New\nLine
     `)).toMatchSnapshot();
   });
 
+  describe('<footnote>', () => {
+    test('inline', () => {
+      expect(renderToJson(`
+
+Footnote^[Foonote body].
+
+      `)).toMatchSnapshot();
+    });
+
+    test('separated', () => {
+      expect(renderToJson(`
+
+Footnote[^first].
+
+[^first]: #### Footnote
+
+    Footnote body
+
+      `)).toMatchSnapshot();
+    });
+  });
+
   test('<h1>', () => {
     expect(renderToJson(`
 

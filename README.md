@@ -72,11 +72,13 @@ new RemarkableReactRenderer({
     content: '',  // Default: Function that returns `dangerouslySetInnerHTML` when HTML is enabled.
     hLevel:'',    // Default: false
     href:'',      // Default: true (for links)
+    id: '',       // Default: Function that returns href for footnote anchors and id for footnote refs
     level: '',    // Default: false
     lines: '',    // Default: false
     order: '',    // Default: false
     params:'',    // Default: false
     src: '',      // Default: true (for images)
+    subId: '',    // Default: false,
     tight: '',    // Default: false
     title: '',    // Default: true (for images and links)
     type:'',      // Default: false
@@ -87,7 +89,6 @@ new RemarkableReactRenderer({
   // Note: At the moment the following are not implemented.
   // * abbreviations
   // * definition lists
-  // * footnotes
   //
   components: {
     a: Component,           // Default: <a />

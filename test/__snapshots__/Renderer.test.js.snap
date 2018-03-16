@@ -58,6 +58,77 @@ exports[`Renderer components <em> 1`] = `
 </p>
 `;
 
+exports[`Renderer components <footnote> inline 1`] = `
+Array [
+  <p>
+    Footnote
+    <sup
+        id="fn0:0"
+    >
+        <a
+            href="#fn0"
+        >
+            [1]
+        </a>
+    </sup>
+    .
+</p>,
+  <section>
+    <ol>
+        <li
+            id="#fn0"
+        >
+            <p>
+                Foonote body
+                <a
+                    href="fn0:0"
+                >
+                    ↩
+                </a>
+            </p>
+        </li>
+    </ol>
+</section>,
+]
+`;
+
+exports[`Renderer components <footnote> separated 1`] = `
+Array [
+  <p>
+    Footnote
+    <sup
+        id="fn0:0"
+    >
+        <a
+            href="#fn0"
+        >
+            [1]
+        </a>
+    </sup>
+    .
+</p>,
+  <section>
+    <ol>
+        <li
+            id="#fn0"
+        >
+            <h4>
+                Footnote
+            </h4>
+            <p>
+                Footnote body
+                <a
+                    href="fn0:0"
+                >
+                    ↩
+                </a>
+            </p>
+        </li>
+    </ol>
+</section>,
+]
+`;
+
 exports[`Renderer components <h1> 1`] = `
 <h1>
   Heading 1

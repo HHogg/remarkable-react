@@ -25,7 +25,7 @@ export default class TokenTree {
   buildToken(token, type = this.getType(token), children) {
     if (Array.isArray(type)) {
       return type.reduceRight((child, typee, index) => (
-        this.buildToken(token, typee, index < type.length - 1 ? [child] : undefined)
+        this.buildToken(token, typee, index < type.length - 1 ? [child] : children)
       ), null);
     }
 
@@ -77,7 +77,7 @@ export default class TokenTree {
 
     [token, this.rOptions].forEach((prps) => {
       Object.keys(prps).forEach((prop) => {
-        const propValue = this.resolveProp(type, prop, prps[prop]);
+        const propValue = this.resolveProp(token, type, prop, prps[prop]);
         if (propValue) props[propValue.key] = propValue.value;
       });
     });
@@ -85,14 +85,14 @@ export default class TokenTree {
     return props;
   }
 
-  resolveProp(type, prop, propValue) {
+  resolveProp(token, type, prop, propValue) {
     const component = this.options.components[type];
     const resolver = this.options.remarkableProps[prop];
 
     if (!resolver) return;
 
     if (typeof resolver === 'function') {
-      return this.resolveFunctionProp(type, resolver(propValue, type), prop, propValue);
+      return this.resolveFunctionProp(type, resolver(propValue, type, token), prop, propValue);
     }
 
     if (typeof resolver === 'string') {
