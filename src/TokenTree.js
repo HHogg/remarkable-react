@@ -69,11 +69,9 @@ export default class TokenTree {
   }
 
   buildTokenProps(type, token) {
-    const props = {};
-
-    if (typeof this.options.components[type] === 'function') {
-      props.options = this.rOptions;
-    }
+    const props = typeof this.options.components[type] === 'function'
+      ? { ...token, options: this.rOptions }
+      : {};
 
     [token, this.rOptions].forEach((prps) => {
       Object.keys(prps).forEach((prop) => {
