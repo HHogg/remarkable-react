@@ -4,17 +4,13 @@
 [![npm version](https://badge.fury.io/js/remarkable-react.svg)](https://badge.fury.io/js/remarkable-react)
 [![Code Climate](https://codeclimate.com/github/HHogg/remarkable-react/badges/gpa.svg)](https://codeclimate.com/github/HHogg/remarkable-react)
 
-A configurable React component renderer for [Remarkable](https://github.com/jonschlinkert/remarkable). [Not a simple `dangerouslySetInnerHTML`!
+A configurable React component renderer for [Remarkable](https://github.com/jonschlinkert/remarkable).
 
 
 ## Install
 
 ```
-npm install remarkable-react --save
-
-# OR
-
-yarn add remarkable-react
+$ yarn add remarkable-react
 ```
 
 
@@ -54,9 +50,7 @@ new RemarkableReactRenderer({
 
   // Key generator function used to generate the need React keys
   // Default: return `index`
-  keyGen: function(token, index) {
-    return 'A Key';
-  },
+  keyGen: (token, index) => 'A Key',
 
   // This enables you to configure the properties that gets passed to
   // the React component. The value can either be a Function, String or Boolean.
@@ -150,15 +144,22 @@ new RemarkableReactRenderer({
 });
 ```
 
-## Contributing
+### Syntax Highlighting
 
-:heart: contribution, but please try to add any needed additional tests, make sure previous tests pass and linting is all groovy.
+I've tried to keep this renderer unopinionated and impartial to any one highlighting library, but it is still possible to get this working with a set up like...
 
+
+```jsx
+import SyntaxHighlighter from 'library';
+
+
+const renderer = new RemarkableReactRenderer({
+  components: {
+    pre: ({ content, params: language }) => (
+      <div dangerouslySetInnerHTML={ { __html:
+        SyntaxHighlighter.highlight(content, language),
+      } } />
+    ),
+  }
+});
 ```
-yarn test
-yarn lint
-```
-
-## License
-
-[MIT]('./LICENSE')
