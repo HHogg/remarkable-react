@@ -78,10 +78,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@brandwatch/eslint-config-axiom@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@brandwatch/eslint-config-axiom/-/eslint-config-axiom-0.0.3.tgz#4a3504cb2c3dbfd59410a46f7fd2f846c0d1dd8d"
-
 "@semantic-release/commit-analyzer@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@semantic-release/commit-analyzer/-/commit-analyzer-2.0.0.tgz#924d1e2c30167c6a472bed9f66ee8f8e077489b2"
@@ -1479,6 +1475,10 @@ escodegen@^1.6.1:
     optionator "^0.8.1"
   optionalDependencies:
     source-map "~0.2.0"
+
+eslint-config-patterning@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-patterning/-/eslint-config-patterning-1.0.0.tgz#7fd1e5790f7601fcbeac13e6b56ada7d8840f87b"
 
 eslint-plugin-react@^7.3.0:
   version "7.7.0"

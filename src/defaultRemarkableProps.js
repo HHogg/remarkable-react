@@ -13,20 +13,20 @@ export default {
   href: true,
   id: (id, type, token) => {
     switch (token.type) {
-    case 'footnote_anchor':
-      return {
-        key: 'href',
-        value: `fn${id}:${token.subId || 0}`,
-      };
-    case 'footnote_open':
-      return { value: `#fn${id}` };
-    case 'footnote_ref':
-      return type === 'a' ? ({
-        key: 'href',
-        value: `#fn${id}`,
-      }) : ({
-        value: `fn${id}:${token.subId || 0}`,
-      });
+      case 'footnote_anchor':
+        return {
+          key: 'href',
+          value: `fn${id}:${token.subId || 0}`,
+        };
+      case 'footnote_open':
+        return { value: `#fn${id}` };
+      case 'footnote_ref':
+        return type === 'a' ? ({
+          key: 'href',
+          value: `#fn${id}`,
+        }) : ({
+          value: `fn${id}:${token.subId || 0}`,
+        });
     }
   },
   level: false,

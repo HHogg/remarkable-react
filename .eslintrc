@@ -1,5 +1,5 @@
 {
-  "extends": ["@brandwatch/eslint-config-axiom"]
+  "extends": ["eslint-config-patterning"]
 }
 
 
