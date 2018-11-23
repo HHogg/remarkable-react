@@ -42,7 +42,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.5.0",
-    "eslint-config-patterning": "^1.0.0",
+    "eslint-config-preshape": "^1.1.0",
     "eslint-plugin-react": "^7.3.0",
     "jest": "^20.0.4",
     "react-test-renderer": "^16.2.0",
