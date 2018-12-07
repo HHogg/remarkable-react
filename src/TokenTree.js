@@ -58,7 +58,7 @@ export default class TokenTree {
       } else if (isCloseToken(ts[this.i])) {
         return collection;
       } else if (isInlineToken(ts[this.i])) {
-        new TokenTree(ts[this.i].children, this.options, this.rOptions)
+        new this.constructor(ts[this.i].children, this.options, this.rOptions)
           .forEach((token) => collection.push(token));
       } else {
         collection.push(this.buildToken(ts[this.i]));
