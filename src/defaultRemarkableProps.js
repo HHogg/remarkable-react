@@ -16,10 +16,10 @@ export default {
       case 'footnote_anchor':
         return {
           key: 'href',
-          value: `fn${id}:${token.subId || 0}`,
+          value: `#fn${id}:${token.subId || 0}`,
         };
       case 'footnote_open':
-        return { value: `#fn${id}` };
+        return { value: `fn${id}` };
       case 'footnote_ref':
         return type === 'a' ? ({
           key: 'href',
