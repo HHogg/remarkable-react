@@ -160,7 +160,7 @@ Array [
                   Object {
                     "children": "↩",
                     "props": Object {
-                      "href": "fn0:0",
+                      "href": "#fn0:0",
                     },
                     "type": "a",
                   },
@@ -170,7 +170,7 @@ Array [
               },
             ],
             "props": Object {
-              "id": "#fn0",
+              "id": "fn0",
             },
             "type": "li",
           },
@@ -239,7 +239,7 @@ Array [
               },
             ],
             "props": Object {
-              "id": "#fn0",
+              "id": "fn0",
             },
             "type": "li",
           },
