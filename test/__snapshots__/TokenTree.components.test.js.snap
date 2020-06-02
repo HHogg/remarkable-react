@@ -62,7 +62,7 @@ Array [
   Object {
     "children": Array [
       "New",
-      undefined,
+      " ",
       "Line",
     ],
     "props": Object {},
@@ -357,7 +357,7 @@ Array [
   Object {
     "children": Array [
       "<p>Hello</p>",
-      undefined,
+      " ",
       "<iframe src=\\"/something.html\\" />",
     ],
     "props": Object {},

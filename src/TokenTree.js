@@ -30,7 +30,7 @@ export default class TokenTree {
     }
 
     if (!type) {
-      return token.content;
+      return token.content || ' ';
     }
 
     return ({
