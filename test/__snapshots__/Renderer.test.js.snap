@@ -30,6 +30,7 @@ exports[`Renderer components <br> with breaks 1`] = `
 exports[`Renderer components <br> without breaks 1`] = `
 <p>
   New
+   
   Line
 </p>
 `;
@@ -182,6 +183,7 @@ exports[`Renderer components <html> with html 1`] = `
 exports[`Renderer components <html> without html 1`] = `
 <p>
   &lt;p&gt;Hello&lt;/p&gt;
+   
   &lt;iframe src="/something.html" /&gt;
 </p>
 `;

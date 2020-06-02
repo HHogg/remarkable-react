@@ -25,7 +25,8 @@ describe('Renderer components', () => {
     test('with breaks', () => {
       expect(renderToJson(`
 
-New\nLine
+New
+Line
 
       `, { breaks: true })).toMatchSnapshot();
     });
@@ -33,7 +34,8 @@ New\nLine
     test('without breaks', () => {
       expect(renderToJson(`
 
-New\nLine
+New
+Line
 
       `)).toMatchSnapshot();
     });
