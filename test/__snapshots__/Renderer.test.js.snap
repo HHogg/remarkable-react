@@ -110,7 +110,7 @@ Array [
   <section>
     <ol>
         <li
-            id="#fn0"
+            id="fn0"
         >
             <h4>
                 Footnote
@@ -118,7 +118,7 @@ Array [
             <p>
                 Footnote body
                 <a
-                    href="fn0:0"
+                    href="#fn0:0"
                 >
                     ↩
                 </a>

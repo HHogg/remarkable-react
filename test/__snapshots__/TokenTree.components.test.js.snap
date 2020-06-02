@@ -229,7 +229,7 @@ Array [
                   Object {
                     "children": "↩",
                     "props": Object {
-                      "href": "fn0:0",
+                      "href": "#fn0:0",
                     },
                     "type": "a",
                   },
