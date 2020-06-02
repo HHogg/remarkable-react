@@ -29,10 +29,8 @@
     "remarkable",
     "react"
   ],
-  "dependencies": {
-    "react": "^16.3.0"
-  },
   "peerDependecies": {
+    "react": "^16.13.1",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
@@ -47,6 +45,7 @@
     "eslint-config-preshape": "^1.1.0",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^20.0.4",
+    "react": "^16.13.1",
     "react-test-renderer": "^16.6.3",
     "remarkable": "^1.7.1",
     "rollup": "^0.47.4",
